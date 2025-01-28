@@ -6,7 +6,6 @@ const produits = [
     { id: 4, nom: "Café Robusta", prix: 9.99 },
 ];
 
-// déclarer un tableau grâce à l'élément id de la div
 const tableauProduit = document.getElementById("produit");
 
 // fonction affichage du produit
@@ -14,15 +13,32 @@ const affichage = () => {
 
     // fonction map pour afficher les produits
     const produitHTML = produits.map(produit =>
-        `<div>
-                <p>${produit.nom}</p>
-                <p>Prix: ${produit.prix}€</p>
-                <button>Supprimer</button>
-            </div>`
+        `<tr>
+                <td>${produit.nom}</td>
+                <td>${produit.prix}€</td>
+                <td><button>Supprimer</button></td>
+        </tr>`
     )
     // attribution de la variable produit à la variable tableau produit
     tableauProduit.innerHTML = produitHTML;
 };
 
 affichage();
+
+
+
+// calculer le montant total
+
+const montantTotal = document.getElementById("total");
+
+const initialValue = 0;
+let totalProduit = produits.reduce(
+    (accumulator, currentValue) => accumulator + currentValue.prix,
+    initialValue,
+);
+
+//Afficher le montant sur le HTML
+montantTotal.innerHTML = `<p>Total : ${totalProduit} €</p>`;
+
+
 
