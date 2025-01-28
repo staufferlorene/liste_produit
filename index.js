@@ -26,7 +26,6 @@ const affichage = () => {
 affichage();
 
 
-
 // calculer le montant total
 
 const montantTotal = document.getElementById("total");
@@ -39,6 +38,49 @@ let totalProduit = produits.reduce(
 
 //Afficher le montant sur le HTML
 montantTotal.innerHTML = `<p>Total : ${totalProduit} €</p>`;
+
+
+
+/*
+En cours d'écriture mais ça ne fonctionne pas du tout !
+*/
+
+
+// Filtrer le résultat de la recherche
+
+const filtre = document.getElementById("recherche");
+
+// Fonction de recherche
+const rechercheProduit = (termeRecherche) => {
+
+    //créer un tableau vide
+    const tableauVide = [''];
+
+    // On filtre le tableau des produits en fonction du nom
+    const produitsFiltres = produits.filter(produit =>
+        produit.nom().includes(filtre)
+    );
+};
+
+rechercheProduit()
+
+// Affichage des produits trouvés
+console.log(rechercheProduit);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
